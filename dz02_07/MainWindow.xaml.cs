@@ -12,8 +12,10 @@ namespace dz02_07
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GetRateButton_Click(object sender, RoutedEventArgs e)
         {
+            string username = Username.Text;
+            string password = Password.Password;
             string currencyFrom = CurrencyFrom.Text;
             string currencyTo = CurrencyTo.Text;
 
@@ -22,8 +24,19 @@ namespace dz02_07
                 using (TcpClient client = new TcpClient("127.0.0.1", 9999))
                 using (NetworkStream stream = client.GetStream())
                 {
+
+                    byte[] data = Encoding.UTF8.GetBytes(username);
+                    stream.Write(data, 0, data.Length);
+                    stream.Read(new byte[1024], 0, 1024);
+
+
+                    data = Encoding.UTF8.GetBytes(password);
+                    stream.Write(data, 0, data.Length);
+                    stream.Read(new byte[1024], 0, 1024);
+
+
                     string message = $"{currencyFrom} {currencyTo}";
-                    byte[] data = Encoding.UTF8.GetBytes(message);
+                    data = Encoding.UTF8.GetBytes(message);
                     stream.Write(data, 0, data.Length);
 
                     byte[] responseData = new byte[256];
@@ -35,7 +48,7 @@ namespace dz02_07
             }
             catch (Exception ex)
             {
-                ResultTextBlock.Text = $"Error: {ex.Message}";
+                ResultTextBlock.Text = $"Помилка: {ex.Message}";
             }
         }
     }
