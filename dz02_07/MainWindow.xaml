@@ -1,4 +1,4 @@
-﻿ ﻿<Window x:Class="CurrencyClient.MainWindow"
+﻿<Window x:Class="dz02_07.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Currency Client" Height="350" Width="525">
@@ -9,7 +9,7 @@
         <Label Content="Currency to: " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CurrencyTo" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="120"/>
 
-        <Button Content="Get currency rate: " HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <Button Content="Get currency rate" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
 
         <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="480" TextWrapping="Wrap"/>
     </Grid>

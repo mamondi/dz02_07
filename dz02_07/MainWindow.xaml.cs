@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows;
 
-namespace CurrencyClient
+namespace dz02_07
 {
     public partial class MainWindow : Window
     {
